@@ -1,0 +1,33 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+<servlet>
+08
+	  <servlet-name>ElServletDeSpring</servlet-name>
+09
+	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+10
+	  <init-param>
+11
+	      <param-name>contextConfigLocation</param-name>
+12
+	      <param-value>/WEB-INF/config/springConfig.xml</param-value>
+13
+	  </init-param>
+14
+	</servlet>
+15
+	 
+16
+	<servlet-mapping>
+17
+	  <servlet-name>ElServletDeSpring</servlet-name>
+18
+	  <url-pattern>*.html</url-pattern>
+19
+	</servlet-mapping>
+  <display-name>Archetype Created Web Application</display-name>
+</web-app>
