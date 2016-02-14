@@ -12,19 +12,20 @@
 	<mvc:annotation-driven />
 	<context:component-scan base-package="com.alvarogonzalez.autentiaHomework" />
 
-	<!-- PARA QUE SPRING ENCUENTRE LOS JSP -->
+	<!-- PARA QUE SPRING ENCUENTRE LOS JSP 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" />
-		<property name="suffix" value=".jsp" />
+		<property name="prefix" value="/WEB-INF/xhtml/" />
+		<property name="suffix" value=".xhtml" />
 	</bean>
+	-->
 
 	<!-- CONEXION CON LA BASE DE DATOS -->
 	<bean id="mysqlDataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql//localhost:3306/autentiahomework?autoReconnect=true&createDatabaseIfNotExist=true&" />
+			value="jdbc:mysql//localhost:3306/autentiahomework?autoReconnect=true&amp;createDatabaseIfNotExist=true" />
 		<property name="username" value="autentia" />
 		<property name="password" value="homework" />
 	</bean>

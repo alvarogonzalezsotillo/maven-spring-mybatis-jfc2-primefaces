@@ -1,33 +1,39 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
-
-<servlet>
-08
-	  <servlet-name>ElServletDeSpring</servlet-name>
-09
-	  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-10
-	  <init-param>
-11
-	      <param-name>contextConfigLocation</param-name>
-12
-	      <param-value>/WEB-INF/config/springConfig.xml</param-value>
-13
-	  </init-param>
-14
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<servlet>
+		<servlet-name>ElServletDeSpring</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/springConfig.xml</param-value>
+		</init-param>
 	</servlet>
-15
-	 
-16
 	<servlet-mapping>
-17
-	  <servlet-name>ElServletDeSpring</servlet-name>
-18
-	  <url-pattern>*.html</url-pattern>
-19
+		<servlet-name>ElServletDeSpring</servlet-name>
+		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
-  <display-name>Archetype Created Web Application</display-name>
+	<display-name>Archetype Created Web Application</display-name>
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+	</context-param>
+	<servlet>
+		<servlet-name>facesServlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>facesServlet</servlet-name>
+		<url-pattern>*.jsf</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>facesServlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+	<listener>
+		<listener-class>com.alvarogonzalez.autentiaHomework.chanchullos.FacesContextBootstrap</listener-class>
+	</listener>
 </web-app>
