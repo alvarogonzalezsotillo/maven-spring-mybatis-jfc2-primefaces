@@ -11,8 +11,10 @@ xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springf
                     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
 
+ 
+
     <mvc:annotation-driven />
-    <!--  <context:component-scan base-package="daw.clientes.service" /> -->
+    <context:component-scan base-package="daw.clientes" />
     <mybatis:scan base-package="daw.clientes" />
     
 
@@ -38,13 +40,13 @@ xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springf
         <property name="dataSource" ref="mysqlDataSource" />
         <property name="typeAliasesPackage" value="daw.clientes.model" />
         <property name="mapperLocations"
-            value="classpath*:daw/clientes/mappers/*.xml" />
+            value="classpath*:daw/clientes/mapper/*.xml" />
     </bean>
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory" />
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="daw.clientes.mappers" />
+        <property name="basePackage" value="daw.clientes.mapper" />
     </bean>
 
 </beans>

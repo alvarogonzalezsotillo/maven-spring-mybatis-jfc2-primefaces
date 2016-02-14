@@ -2,6 +2,9 @@ package daw.clientes.model;
 
 import java.util.Date;
 
+
+import static daw.clientes.UnLogger.*;
+
 public class Cliente {
 	
 	private int idCliente;
@@ -10,6 +13,11 @@ public class Cliente {
 	private String apellidos;
 	private Date fechaNacimiento;
 	private String password;
+	
+	public Cliente(){
+	    log( "Se crea un cliente" );
+	}
+	
 	public int getIdCliente() {
 		return idCliente;
 	}
