@@ -7,7 +7,7 @@ import daw.clientes.model.Cliente;
 
 
 
-@Service("clienteService")
+
 public interface ClienteService {
 
 	void insertCliente(Cliente cliente);

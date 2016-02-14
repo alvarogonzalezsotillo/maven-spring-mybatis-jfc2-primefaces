@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import daw.clientes.mapper.ClienteMapper;
 import daw.clientes.model.Cliente;
 
-
+@Service("elClienteService")
 public class ClienteServiceImpl implements ClienteService {
 
   @Autowired

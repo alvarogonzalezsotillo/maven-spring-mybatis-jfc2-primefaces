@@ -341,7 +341,7 @@
 		<param-value>Development</param-value>
 	</context-param>
 
-<!-- 
+ 
 	<servlet>
 		<servlet-name>FacesServlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -355,24 +355,10 @@
 		<servlet-name>FacesServlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
--->
 
-<servlet>
-    <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <init-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/web-application-config.xml</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-</servlet>
 
-<servlet-mapping>
-    <servlet-name>Spring MVC Dispatcher Servlet</servlet-name>
-    <url-pattern>/spring/*</url-pattern>
-</servlet-mapping>
-
-	<!-- Add Support for Spring 
+	<!-- Add Support for Spring    -->
+	 
 	<listener>
 		<listener-class>
 			org.springframework.web.context.ContextLoaderListener
@@ -383,5 +369,4 @@
 			org.springframework.web.context.request.RequestContextListener
 		</listener-class>
 	</listener>
-	-->
 </web-app>
