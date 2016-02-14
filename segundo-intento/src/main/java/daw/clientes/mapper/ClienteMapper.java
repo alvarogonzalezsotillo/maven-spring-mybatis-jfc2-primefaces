@@ -17,7 +17,7 @@ public interface ClienteMapper {
     @Select("SELECT USUARIO as USUARIO, PASSWORD as PASSWORD, "
             + "NOMBRE as NOMBRE, APELLIDOS as APELLIDOS, "
             + "FECHANACIMIENTO as FECHANACIMIENTO "
-            + "FROM clientes WHERE usuario = #{usuario}")
+            + "FROM cliente WHERE usuario = #{usuario}")
     public Cliente getClienteByUsuario(String usuario);
 
 }
