@@ -4,9 +4,7 @@ import org.springframework.stereotype.Service;
 
 import daw.clientes.model.Cliente;
 
-
-
-
+import java.util.List;
 
 public interface ClienteService {
 
@@ -15,5 +13,9 @@ public interface ClienteService {
 	boolean getClienteByLogin(String usaurio, String password);
 
 	boolean getClienteByUsuario(String usaurio);
+
+	public List<Cliente> getClientes();
+
+	void updateCliente(Cliente cliente);
 
 }

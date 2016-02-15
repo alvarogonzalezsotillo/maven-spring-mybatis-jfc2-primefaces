@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="./layout.xhtml">
-    <ui:define name="title">Login</ui:define>
+	<ui:define name="title">Lista de clientes</ui:define>
 
-    <ui:define name="content">
-        <h:form>
-                <h:outputLabel value="Existe!" />
-        </h:form>
-    </ui:define>
+	<ui:define name="content">
+
+		<h:form>
+			<p:dataTable id="rowEditingTable" var="cliente"
+				value="#{paginationClientesView.clientes}" paginator="true" rows="5"
+				paginatorPosition="bottom" editable="true">
+				<f:facet name="header">
+            Clientes
+        </f:facet>
+
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="ID" />
+					</f:facet>
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{cliente.idCliente}" />
+						</f:facet>
+						<f:facet name="input">
+							<h:outputText value="#{cliente.idCliente}" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Usuario" />
+					</f:facet>
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{cliente.usuario}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{cliente.usuario}" style="width:96%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column style="width:6%" exportable="false">
+					<p:rowEditor />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+	</ui:define>
 </ui:composition>
 </html>

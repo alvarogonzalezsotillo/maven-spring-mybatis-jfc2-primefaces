@@ -1,5 +1,7 @@
 package daw.clientes.service;
 
+import static daw.clientes.UnLogger.*;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +38,16 @@ public class ClienteServiceImpl implements ClienteService {
       }
 
       return false;
+  }
+  
+  public List<Cliente> getClientes(){
+	  log("ClienteService: getClientes");
+	  return clienteMapper.getClientes();
+  }
+  
+  public void updateCliente(Cliente cliente){
+	  log("ClienteService: updateCliente");
+	  clienteMapper.updateCliente(cliente);
   }
 
 }

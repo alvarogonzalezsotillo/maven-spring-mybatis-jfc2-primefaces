@@ -87,6 +87,14 @@
 			<version>5.1.21</version>
 		</dependency>
 
+		<!-- primefaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>4.0</version>
+		</dependency>
+
+
 
 	</dependencies>
 
