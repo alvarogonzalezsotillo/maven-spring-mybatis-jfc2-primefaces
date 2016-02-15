@@ -13,12 +13,18 @@
 	<ui:define name="content">
 
 		<h:form>
+
+
 			<p:dataTable id="rowEditingTable" var="cliente"
 				value="#{paginationClientesView.clientes}" paginator="true" rows="5"
 				paginatorPosition="bottom" editable="true">
+
+	
+				<p:ajax event="rowEdit" listener="#{paginationClientesView.rowEdit}" />
+				 
 				<f:facet name="header">
-            Clientes
-        </f:facet>
+    	        	Clientes
+        		</f:facet>
 
 				<p:column>
 					<f:facet name="header">

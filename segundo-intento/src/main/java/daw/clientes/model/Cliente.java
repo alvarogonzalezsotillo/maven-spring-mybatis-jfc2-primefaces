@@ -55,6 +55,14 @@ public class Cliente {
 		this.password = password;
 	}
 
+	@Override
+	public String toString() {
+		return "Cliente [idCliente=" + idCliente + ", usuario=" + usuario
+				+ ", nombre=" + nombre + ", apellidos=" + apellidos
+				+ ", fechaNacimiento=" + fechaNacimiento + ", password="
+				+ password + "]";
+	}
+
 
 
 }
