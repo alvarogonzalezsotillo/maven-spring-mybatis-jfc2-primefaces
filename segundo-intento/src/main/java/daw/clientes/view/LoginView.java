@@ -55,10 +55,11 @@ public class LoginView {
   public String login() {
       log( "LoginView.login");
       boolean found = elClienteService.getClienteByLogin(getName(), getPassword());
+      log( "  found:" + found );
       if (found) {                
           return "success";
       } else {                
-          return "failure";
+          return "login";
       }
   }
 }
