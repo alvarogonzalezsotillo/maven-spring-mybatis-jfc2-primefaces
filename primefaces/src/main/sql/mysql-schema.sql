@@ -1,3 +1,13 @@
+create database autentia;
+
+use autentia;
+
+create user 'autentia' identified by 'autentia';
+
+grant all on autentia.* to 'autentia';
+
+flush privileges;
+
 CREATE TABLE `cliente` (
   `idcliente` bigint(20) NOT NULL AUTO_INCREMENT,
   `fechanacimiento` datetime NOT NULL,
@@ -7,3 +17,4 @@ CREATE TABLE `cliente` (
   `usuario` varchar(20) NOT NULL,
   PRIMARY KEY (`idcliente`)
 );
+
