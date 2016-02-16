@@ -56,9 +56,9 @@ public class LoginView {
       log( "LoginView.login");
       boolean found = elClienteService.getClienteByLogin(getName(), getPassword());
       if (found) {                
-          return "success";
+          return "success?faces-redirect=true";
       } else {                
-          return "failure";
+          return "";
       }
   }
 }
