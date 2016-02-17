@@ -3,7 +3,9 @@ package daw.clientes.view;
 
 import static daw.clientes.UnLogger.log;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -27,11 +29,11 @@ public class LoginView {
 	}
 
 	@NotNull
-	@Size(min = 6, max = 128)
+	@Size(min = 6)
 	private String name;
 
 	@NotNull
-	@Size(min = 6, max = 128)
+	@Size(min = 6)
 	private String password;
 
 	public String getName() {
@@ -57,9 +59,10 @@ public class LoginView {
       boolean found = elClienteService.getClienteByLogin(getName(), getPassword());
       log( "  found:" + found );
       if (found) {                
-          return "success";
-      } else {                
-          return "login";
+          return "clientes?faces-redirect=true";
+      } else {         
+          FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("El usuario no corresponde con la contraseña"));
+          return "";
       }
   }
 }

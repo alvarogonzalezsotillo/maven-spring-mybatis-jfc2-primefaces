@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="./layout.xhtml">
+	<ui:define name="title">Lista de clientes</ui:define>
+
+	<ui:define name="content">
+
+		<p:growl id="growl" life="20000" />
+
+		<h:form id="form1_id">
+			<p:commandButton value="Nuevo cliente" type="button"
+				action="#{paginationClientesView.nuevoClienteAction}"
+				oncomplete="editarUsuarioDialog.show()"
+				update="tabla_id editarUsuarioDialog_id" />
+
+            <p:commandButton value="Nuevo cliente2" 
+                actionListener="#{paginationClientesView.nuevoClienteAction()}"
+                oncomplete="editarUsuarioDialog.show()"
+                update="tabla_id editarUsuarioDialog_id" />
+
+            <p:commandButton value="Nuevo cliente3" 
+                actionListener="#{paginationClientesView.nuevoClienteAction}"
+                oncomplete="editarUsuarioDialog.show()"
+                update="tabla_id editarUsuarioDialog_id" />
+
+			<p:dataTable id="tabla_id" var="cliente"
+				value="#{paginationClientesView.clientes}" paginator="true"
+				selection="#{paginationClientesView.selectedCliente}" rows="5"
+				paginatorPosition="bottom" editable="false">
+
+
+
+				<f:facet name="header">    	        	Clientes        		</f:facet>
+
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="ID" />
+					</f:facet>
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{cliente.idCliente}" />
+						</f:facet>
+						<f:facet name="input">
+							<h:outputText value="#{cliente.idCliente}" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Usuario" />
+					</f:facet>
+					<p:cellEditor>
+						<f:facet name="output">
+							<h:outputText value="#{cliente.usuario}" />
+						</f:facet>
+						<f:facet name="input">
+							<p:inputText value="#{cliente.usuario}" style="width:96%" />
+						</f:facet>
+					</p:cellEditor>
+				</p:column>
+				<p:column style="width:6%" exportable="false">
+					<p:rowEditor />
+				</p:column>
+			</p:dataTable>
+
+			<p:dialog id="editarUsuarioDialog_id"
+				header="Modificar datos de usuario" widgetVar="editarUsuarioDialog"
+				modal="TRUE">
+				<h:messages errorClass="errorMessage" infoClass="infoMessage"
+					warnClass="warnMessage" />
+				<h:panelGrid id="edituserform" columns="2">
+					<h:outputText value="Identificador:" />
+					<h:outputText
+						value="#{paginationClientesView.selectedCliente.idCliente}"
+						style="font-weight: bold;" />
+
+					<h:outputText value="Usuario:" />
+					<p:inputText
+						value="#{paginationClientesView.selectedCliente.usuario}" />
+
+					<h:outputText value="Contraseña:" />
+					<p:inputText
+						value="#{paginationClientesView.selectedCliente.password}" />
+				</h:panelGrid>
+
+				<p:panel>
+					<p:commandButton value="Hecho" type="button"
+						onclick="editarUsuarioDialog.hide()" />
+				</p:panel>
+
+			</p:dialog>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

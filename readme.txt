@@ -16,4 +16,5 @@ SPRING3 Y JSF2
 http://www.mkyong.com/jsf2/jsf-2-0-spring-integration-example/
 
 
-
+DIALOGO Y TABLA DE PRIMEFACES
+http://stackoverflow.com/questions/16486500/primefaces-datatable-dialog-for-data-modification

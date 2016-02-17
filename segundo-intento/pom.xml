@@ -95,6 +95,13 @@
 		</dependency>
 
 
+		<!-- PARA LAS VALIDACIONES (EN JETTY, EN TOMCAT NO PARECE HACER FALTA) -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.3.Final</version>
+		</dependency>
+
 
 	</dependencies>
 
@@ -130,6 +137,7 @@
 					<password>t</password>
 				</configuration>
 			</plugin>
+
 		</plugins>
 
 	</build>
