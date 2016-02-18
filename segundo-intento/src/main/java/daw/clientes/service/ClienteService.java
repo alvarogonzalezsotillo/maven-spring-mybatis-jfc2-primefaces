@@ -1,10 +1,8 @@
 package daw.clientes.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 import daw.clientes.model.Cliente;
-
-import java.util.List;
 
 public interface ClienteService {
 
@@ -17,5 +15,7 @@ public interface ClienteService {
 	boolean getClienteByUsuario(String usaurio);
 
 	public List<Cliente> getClientes();
+
+    void deleteCliente(Cliente c);
 
 }

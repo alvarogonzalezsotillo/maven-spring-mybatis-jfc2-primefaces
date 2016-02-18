@@ -81,6 +81,12 @@ public class PaginationClientesView {
         setEditedCliente(c);
     }
     
+    public void borrarClienteSeleccionadoAction(){
+        Cliente c = getSelectedCliente();
+        log( "Borrar cliente:" + c );
+        elClienteService.deleteCliente(c);
+    }
+    
     public void salvarClienteAction(){
         Cliente c = getEditedCliente();
         log( "salvarClienteAction:" + c );

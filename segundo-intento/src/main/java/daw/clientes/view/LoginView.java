@@ -30,11 +30,11 @@ public class LoginView {
 	}
 
 	@NotNull
-	@Size(min = 6, max=20)
+	@Size(min = 1, max=20)
 	private String name;
 
 	@NotNull
-	@Size(min = 6, max=20)
+	@Size(min = 1, max=20)
 	private String password;
 
 	public String getName() {

@@ -54,4 +54,9 @@ public class ClienteServiceImpl implements ClienteService {
     public void updateCliente(Cliente cliente) {
         clienteMapper.updateCliente(cliente);
     }
+
+    @Override
+    public void deleteCliente(Cliente c) {
+        clienteMapper.deleteCliente(c);
+    }
 }

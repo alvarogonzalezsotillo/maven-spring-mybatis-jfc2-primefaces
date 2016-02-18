@@ -1,6 +1,8 @@
 package daw.clientes.mapper;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
@@ -31,4 +33,7 @@ public interface  ClienteMapper{
     @Insert("update cliente set usuario=#{usuario},  password=#{password}, nombre=#{nombre},"
             + "apellidos=#{apellidos}, fechaNacimiento=#{fechaNacimiento} where idCliente=#{idCliente}" )
     public void updateCliente(Cliente cliente);
+
+    @Delete("delete from cliente where idCliente=#{idCliente}")
+    public void deleteCliente(Cliente c);
 }

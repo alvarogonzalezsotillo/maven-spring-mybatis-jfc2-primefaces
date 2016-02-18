@@ -358,7 +358,6 @@
 
 
 	<!-- Add Support for Spring    -->
-	 
 	<listener>
 		<listener-class>
 			org.springframework.web.context.ContextLoaderListener
