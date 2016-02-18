@@ -12,32 +12,31 @@
 
 	<ui:define name="content">
 
-		<p:growl id="growl" life="20000" />
+		<p:growl id="growl" life="2000" />
 
 		<h:form id="form1_id">
-			<p:commandButton value="Nuevo cliente" type="button"
-				action="#{paginationClientesView.nuevoClienteAction}"
+
+
+			<p:commandButton value="Nuevo cliente"
+				actionListener="#{paginationClientesView.nuevoClienteAction()}"
 				oncomplete="editarUsuarioDialog.show()"
 				update="tabla_id editarUsuarioDialog_id" />
 
-            <p:commandButton value="Nuevo cliente2" 
-                actionListener="#{paginationClientesView.nuevoClienteAction()}"
-                oncomplete="editarUsuarioDialog.show()"
-                update="tabla_id editarUsuarioDialog_id" />
+			<p:commandButton value="Editar cliente seleccionado"
+				actionListener="#{paginationClientesView.editarClienteSeleccionadoAction()}"
+				oncomplete="editarUsuarioDialog.show()"
+				update="tabla_id editarUsuarioDialog_id" />
 
-            <p:commandButton value="Nuevo cliente3" 
-                actionListener="#{paginationClientesView.nuevoClienteAction}"
-                oncomplete="editarUsuarioDialog.show()"
-                update="tabla_id editarUsuarioDialog_id" />
 
-			<p:dataTable id="tabla_id" var="cliente"
+			<p:dataTable id="tabla_id" var="cliente" widgetVar="tabla"
 				value="#{paginationClientesView.clientes}" paginator="true"
-				selection="#{paginationClientesView.selectedCliente}" rows="5"
-				paginatorPosition="bottom" editable="false">
+				selection="#{paginationClientesView.selectedCliente}" rows="10"
+				rowKey="#{cliente.idCliente}" selectionMode="single"
+				paginatorPosition="bottom">
 
 
 
-				<f:facet name="header">    	        	Clientes        		</f:facet>
+				<f:facet name="header">Clientes</f:facet>
 
 				<p:column>
 					<f:facet name="header">
@@ -65,9 +64,6 @@
 						</f:facet>
 					</p:cellEditor>
 				</p:column>
-				<p:column style="width:6%" exportable="false">
-					<p:rowEditor />
-				</p:column>
 			</p:dataTable>
 
 			<p:dialog id="editarUsuarioDialog_id"
@@ -78,21 +74,24 @@
 				<h:panelGrid id="edituserform" columns="2">
 					<h:outputText value="Identificador:" />
 					<h:outputText
-						value="#{paginationClientesView.selectedCliente.idCliente}"
+						value="#{paginationClientesView.editedCliente.idCliente}"
 						style="font-weight: bold;" />
 
 					<h:outputText value="Usuario:" />
-					<p:inputText
-						value="#{paginationClientesView.selectedCliente.usuario}" />
+					<p:inputText id="usuario_id"
+						value="#{paginationClientesView.editedCliente.usuario}">
+					</p:inputText>
+
 
 					<h:outputText value="Contraseña:" />
 					<p:inputText
-						value="#{paginationClientesView.selectedCliente.password}" />
+						value="#{paginationClientesView.editedCliente.password}" />
 				</h:panelGrid>
 
 				<p:panel>
-					<p:commandButton value="Hecho" type="button"
-						onclick="editarUsuarioDialog.hide()" />
+					<p:commandButton value="Hecho"
+						actionListener="#{paginationClientesView.salvarClienteAction}"
+						update="tabla_id" onsuccess="editarUsuarioDialog.hide()" />
 				</p:panel>
 
 			</p:dialog>

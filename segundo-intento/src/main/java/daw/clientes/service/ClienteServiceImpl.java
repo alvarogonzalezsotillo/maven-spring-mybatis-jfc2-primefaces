@@ -12,42 +12,46 @@ import daw.clientes.model.Cliente;
 @Service("elClienteService")
 public class ClienteServiceImpl implements ClienteService {
 
-  @Autowired
-  private ClienteMapper clienteMapper;
+    @Autowired
+    private ClienteMapper clienteMapper;
 
-  @Transactional
-  public void insertCliente(Cliente student) {        
-      clienteMapper.insertCliente(student);
-  }
+    @Override
+    @Transactional
+    public void insertNewCliente(Cliente student) {
+        clienteMapper.insertNewCliente(student);
+    }
 
-  public boolean getClienteByLogin(String userName, String password) {        
-      Cliente student = clienteMapper.getClienteByUsuario(userName);
+    @Override
+    public boolean getClienteByLogin(String userName, String password) {
+        Cliente student = clienteMapper.getClienteByUsuario(userName);
 
-      if(student != null && student.getPassword().equals(password)) {
-          return true;
-      }
+        if (student != null && student.getPassword().equals(password)) {
+            return true;
+        }
 
-      return false;
-  }
+        return false;
+    }
 
-  public boolean getClienteByUsuario(String userName) {
-	  Cliente student = clienteMapper.getClienteByUsuario(userName);
+    @Override
+    public boolean getClienteByUsuario(String userName) {
+        Cliente student = clienteMapper.getClienteByUsuario(userName);
 
-      if(student != null) {
-          return true;
-      }
+        if (student != null) {
+            return true;
+        }
 
-      return false;
-  }
-  
-  public List<Cliente> getClientes(){
-	  log("ClienteService: getClientes");
-	  return clienteMapper.getClientes();
-  }
-  
-  public void updateCliente(Cliente cliente){
-	  log("ClienteService: updateCliente");
-	  clienteMapper.updateCliente(cliente);
-  }
+        return false;
+    }
 
+    @Override
+    public List<Cliente> getClientes() {
+        log("ClienteService: getClientes");
+        return clienteMapper.getClientes();
+    }
+
+    @Override
+    @Transactional
+    public void updateCliente(Cliente cliente) {
+        clienteMapper.updateCliente(cliente);
+    }
 }

@@ -8,14 +8,14 @@ import java.util.List;
 
 public interface ClienteService {
 
-	void insertCliente(Cliente cliente);
+	void insertNewCliente(Cliente cliente);
+	
+	void updateCliente(Cliente cliente);
 
 	boolean getClienteByLogin(String usaurio, String password);
 
 	boolean getClienteByUsuario(String usaurio);
 
 	public List<Cliente> getClientes();
-
-	void updateCliente(Cliente cliente);
 
 }

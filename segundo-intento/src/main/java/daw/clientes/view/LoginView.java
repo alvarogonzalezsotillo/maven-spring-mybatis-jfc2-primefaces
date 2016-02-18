@@ -5,6 +5,7 @@ import static daw.clientes.UnLogger.log;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -17,7 +18,7 @@ import daw.clientes.service.ClienteService;
 
 @ManagedBean
 @Controller
-@Scope("request")
+@ViewScoped
 public class LoginView {
 
 
@@ -29,11 +30,11 @@ public class LoginView {
 	}
 
 	@NotNull
-	@Size(min = 6)
+	@Size(min = 6, max=20)
 	private String name;
 
 	@NotNull
-	@Size(min = 6)
+	@Size(min = 6, max=20)
 	private String password;
 
 	public String getName() {
